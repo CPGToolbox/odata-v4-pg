@@ -87,6 +87,13 @@ export class PGVisitor extends Visitor{
 					this.where += ` like \$${this.parameters.length}`;
 				}else this.where += ` like '%${SQLLiteral.convert(params[1].value, params[1].raw).slice(1, -1)}%'`;
 				break;
+			case "indexof":
+				this.where += "(position(";
+				this.Visit(params[1], context);
+				this.where += " in ";
+				this.Visit(params[0], context);
+				this.where += ") -1)";
+				break;
 			case "endswith":
 				this.Visit(params[0], context);
 				if (this.options.useParameters){
