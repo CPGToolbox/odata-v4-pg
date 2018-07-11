@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/jaystack/odata-v4-pg#readme",
   "dependencies": {
-    "odata-v4-parser": "git+https://github.com/CPGToolbox/odata-v4-parser",
+    "odata-v4-parser": "git+https://github.com/CPGToolbox/odata-v4-parser.git",
     "odata-v4-sql": "git+https://github.com/CPGToolbox/odata-v4-sql.git"
   },
   "devDependencies": {
