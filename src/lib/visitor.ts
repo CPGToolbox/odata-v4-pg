@@ -88,11 +88,11 @@ export class PGVisitor extends Visitor{
 				}else this.where += ` like '%${SQLLiteral.convert(params[1].value, params[1].raw).slice(1, -1)}%'`;
 				break;
 			case "indexof":
-				this.where += "(position(";
+				this.where += "(position(LOWER(";
 				this.Visit(params[1], context);
-				this.where += " in ";
+				this.where += ") in LOWER(";
 				this.Visit(params[0], context);
-				this.where += ") -1)";
+				this.where += ")) -1)";
 				break;
 			case "endswith":
 				this.Visit(params[0], context);
